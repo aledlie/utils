@@ -23,19 +23,6 @@ class Strings
 
 	public const TrimCharacters = " \t\n\r\0\x0B\u{A0}";
 
-	/** @deprecated use Strings::TrimCharacters */
-	public const TRIM_CHARACTERS = self::TrimCharacters;
-
-
-	/**
-	 * @deprecated use Nette\Utils\Validator::isUnicode()
-	 */
-	public static function checkEncoding(string $s): bool
-	{
-		return $s === self::fixEncoding($s);
-	}
-
-
 	/**
 	 * Removes all invalid UTF-8 characters from a string.
 	 */
@@ -78,34 +65,6 @@ class Strings
 
 		return unpack('N', $tmp)[1];
 	}
-
-
-	/**
-	 * @deprecated use str_starts_with()
-	 */
-	public static function startsWith(string $haystack, string $needle): bool
-	{
-		return str_starts_with($haystack, $needle);
-	}
-
-
-	/**
-	 * @deprecated use str_ends_with()
-	 */
-	public static function endsWith(string $haystack, string $needle): bool
-	{
-		return str_ends_with($haystack, $needle);
-	}
-
-
-	/**
-	 * @deprecated use str_contains()
-	 */
-	public static function contains(string $haystack, string $needle): bool
-	{
-		return str_contains($haystack, $needle);
-	}
-
 
 	/**
 	 * Returns a part of UTF-8 string specified by starting position and length. If start is negative,
@@ -151,14 +110,6 @@ class Strings
 
 		return $s;
 	}
-
-
-	/** @deprecated use Strings::unixNewLines() */
-	public static function normalizeNewLines(string $s): string
-	{
-		return self::unixNewLines($s);
-	}
-
 
 	/**
 	 * Converts line endings to \n used on Unix-like systems.
